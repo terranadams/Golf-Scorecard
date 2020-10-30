@@ -30,8 +30,9 @@ function getNames() {
 } 
 
 function startGame() {
-    for (let i = 0; i > playerCount; i++) {
-        players.push(document.getElementById(`playerNumber${i}`).value) // This isnt pushing anything to the array
+    for (let i = 0; i < playerCount; i++) {
+        players.push(document.getElementById(`playerNumber${i}`).value);
+        console.log(players[i])
     }
-    console.log(players)
+
 }
