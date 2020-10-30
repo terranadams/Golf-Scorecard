@@ -7,14 +7,19 @@ let myReq = new XMLHttpRequest();
 myReq.open('GET','https://golf-courses-api.herokuapp.com/courses/', true )
 myReq.onload = function() {
     golfCourse = JSON.parse(myReq.responseText)
-    console.log(golfCourse)
+    //console.log(golfCourse.courses[0])
 }
 myReq.send();
 
 let nameInputHTML = `<h4>Gimme names</h4>`
+
 function getNames() {
+
     course = document.getElementById('course').value
     playerCount = document.getElementById('playerCount').value
+    console.log("Course chosen: " + course)
+    console.log("Number of players: " + playerCount)
+
     for (let i = 0 ; i < playerCount; i++) {
         nameInputHTML += `
             <input id="playerNumber${i}" type="text" placeholder="Enter name "><br>
