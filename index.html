@@ -15,16 +15,22 @@
 <br>
 <div id="names">
   
-    <label for="course" class="text-center">Which course?</label>
-<input list="courses" id="course" name="course"/>
-<datalist id="courses">
-    <option value="Fox Hollow">
-    <option value="Thanksgiving Point">
-    <option value="Spanish Oaks">
-</datalist>
+  <label for="courses">Choose a course:</label>
+
+  <select name="courses" id="course">
+    <option value="foxHollow">Fox Hollow</option>
+    <option value="thanksgivingPoint">Thanksgiving Point</option>
+    <option value="spanishOaks">Spanish Oaks</option>
+  </select>
 <br>
-<label for="playerCount">How many players? (Up to 4)</label>
-<input type="number" id="playerCount" min="1" max="4">
+<label for="cars">Choose a car:</label>
+
+<select name="playerCount" id="playerCount">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+</select>
 <br>
 <button onclick="getNames()">Continue</button>
 
