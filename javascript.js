@@ -25,7 +25,7 @@ function getNames() {
             <input id="playerNumber${i}" class="form-control col-2" type="text" placeholder="Enter name "><br>
         `;
     }
-    nameInputHTML += '<br><button onclick="startGame()">Start</button>'
+    nameInputHTML += '<br><button onclick="startGame()" class="btn btn-success">Start</button>'
     document.getElementById('names').innerHTML = nameInputHTML
 } 
 
