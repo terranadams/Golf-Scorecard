@@ -22,7 +22,7 @@ function getNames() {
 
     for (let i = 0 ; i < playerCount; i++) {
         nameInputHTML += `
-            <input id="playerNumber${i}" type="text" placeholder="Enter name "><br>
+            <input id="playerNumber${i}" class="form-control col-2" type="text" placeholder="Enter name "><br>
         `;
     }
     nameInputHTML += '<br><button onclick="startGame()">Start</button>'

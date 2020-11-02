@@ -7,22 +7,9 @@
     border: solid 1px black;
 }
 
-.leftColumn {
-    font-size: 1.5vw;
-}
 
-#course {
-    font-size: 3vw;
-}
-
-#playerCount {
-    font-size: 3vw;
-}
 
 body {
     background-color: rgb(173, 173, 173);
 }
 
-.handicap {
-    font-size: 1.5vw;
-}
