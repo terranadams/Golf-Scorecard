@@ -2,15 +2,8 @@ let course
 let playerCount
 let players = []
 let cardStuff = document.getElementById('cardStuff')
-let golfCourse
-let myReq = new XMLHttpRequest();
-myReq.open('GET','https://golf-courses-api.herokuapp.com/courses/', true )
-myReq.onload = function() {
-    golfCourse = JSON.parse(myReq.responseText)
-    //console.log(golfCourse.courses[0])
-}
-myReq.send();
-
+let courseID
+let coursePromise
 let nameInputHTML = `<h4>Gimme names</h4>`
 
 function getNames() {
@@ -19,6 +12,18 @@ function getNames() {
     playerCount = document.getElementById('playerCount').value
     console.log("Course chosen: " + course)
     console.log("Number of players: " + playerCount)
+    if(course == 'Fox Hollow') courseID = 18300
+    if(course == 'Thanksgiving Point') courseID = 11819
+    if(course == 'Spanish Oaks') courseID = 19002
+    console.log(courseID)
+    
+    coursePromise = fetch(
+        `https://golf-courses-api.herokuapp.com/courses/${courseID}`
+        )
+        .then(res => res.json())
+        .then(info => console.log(info.data.status))
+        
+        
 
     for (let i = 0 ; i < playerCount; i++) {
         nameInputHTML += `
@@ -27,7 +32,8 @@ function getNames() {
     }
     nameInputHTML += '<br><button onclick="startGame()" class="btn btn-success">Start</button>'
     document.getElementById('names').innerHTML = nameInputHTML
-} 
+    
+}
 
 function startGame() {
     for (let i = 0; i < playerCount; i++) {
