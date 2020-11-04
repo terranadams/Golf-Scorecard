@@ -37,8 +37,9 @@ function getNames() {
 
 function startGame() {
     for (let i = 0; i < playerCount; i++) {
+        players.push(document.getElementById(`playerNumber${i}`).value);
         let newPlayerHTML = `<div class="row">
-        <div class="col-1 rightColumn player${i}">Player 1</div>
+        <div class="col-1 leftColumn player${i}">${players[i]}</div>
         <div class="col-1 text-center"></div>
         <div class="col-1 text-center"></div>
         <div class="col-1 text-center"></div>
@@ -50,13 +51,9 @@ function startGame() {
         <div class="col-1 text-center"></div>
         <div class="col-1 text-center"></div>
       </div>`
-        players.push(document.getElementById(`playerNumber${i}`).value);
         document.getElementById('cardStuff1').innerHTML += newPlayerHTML
         document.getElementById('cardStuff2').innerHTML += newPlayerHTML
     }
-    document.getElementsByClassName('player0').innerHTML = players[0]
-    if(players[1]) {document.getElementsByClassName('player1').innerHTML = players[1]}
-    if(players[2]) {document.getElementsByClassName('player2').innerHTML = players[2]}
-    if(players[3]) {document.getElementsByClassName('player3').innerHTML = players[3]}
+    
     document.getElementById('courseName').innerHTML = course
 }
