@@ -29,8 +29,64 @@ function getNames() {
         )
         .then(res => res.json())
         .then(info => {
-            console.log(info.data.holes[0].teeBoxes[difficultyNum].yards)
+            document.getElementById('yards1').innerHTML = info.data.holes[0].teeBoxes[difficultyNum].yards
+            document.getElementById('yards2').innerHTML = info.data.holes[1].teeBoxes[difficultyNum].yards
+            document.getElementById('yards3').innerHTML = info.data.holes[2].teeBoxes[difficultyNum].yards
+            document.getElementById('yards4').innerHTML = info.data.holes[3].teeBoxes[difficultyNum].yards
+            document.getElementById('yards5').innerHTML = info.data.holes[4].teeBoxes[difficultyNum].yards
+            document.getElementById('yards6').innerHTML = info.data.holes[5].teeBoxes[difficultyNum].yards
+            document.getElementById('yards7').innerHTML = info.data.holes[6].teeBoxes[difficultyNum].yards
+            document.getElementById('yards8').innerHTML = info.data.holes[7].teeBoxes[difficultyNum].yards
+            document.getElementById('yards9').innerHTML = info.data.holes[8].teeBoxes[difficultyNum].yards
+            document.getElementById('yards10').innerHTML = info.data.holes[9].teeBoxes[difficultyNum].yards
+            document.getElementById('yards11').innerHTML = info.data.holes[10].teeBoxes[difficultyNum].yards
+            document.getElementById('yards12').innerHTML = info.data.holes[11].teeBoxes[difficultyNum].yards
+            document.getElementById('yards13').innerHTML = info.data.holes[12].teeBoxes[difficultyNum].yards
+            document.getElementById('yards14').innerHTML = info.data.holes[13].teeBoxes[difficultyNum].yards
+            document.getElementById('yards15').innerHTML = info.data.holes[14].teeBoxes[difficultyNum].yards
+            document.getElementById('yards16').innerHTML = info.data.holes[15].teeBoxes[difficultyNum].yards
+            document.getElementById('yards17').innerHTML = info.data.holes[16].teeBoxes[difficultyNum].yards
+            document.getElementById('yards18').innerHTML = info.data.holes[17].teeBoxes[difficultyNum].yards
 
+
+            document.getElementById('hdcp1').innerHTML = info.data.holes[0].teeBoxes[difficultyNum].hcp
+            document.getElementById('hdcp2').innerHTML = info.data.holes[1].teeBoxes[difficultyNum].hcp
+            document.getElementById('hdcp3').innerHTML = info.data.holes[2].teeBoxes[difficultyNum].hcp
+            document.getElementById('hdcp4').innerHTML = info.data.holes[3].teeBoxes[difficultyNum].hcp
+            document.getElementById('hdcp5').innerHTML = info.data.holes[4].teeBoxes[difficultyNum].hcp
+            document.getElementById('hdcp6').innerHTML = info.data.holes[5].teeBoxes[difficultyNum].hcp
+            document.getElementById('hdcp7').innerHTML = info.data.holes[6].teeBoxes[difficultyNum].hcp
+            document.getElementById('hdcp8').innerHTML = info.data.holes[7].teeBoxes[difficultyNum].hcp
+            document.getElementById('hdcp9').innerHTML = info.data.holes[8].teeBoxes[difficultyNum].hcp
+            document.getElementById('hdcp10').innerHTML = info.data.holes[9].teeBoxes[difficultyNum].hcp
+            document.getElementById('hdcp11').innerHTML = info.data.holes[10].teeBoxes[difficultyNum].hcp
+            document.getElementById('hdcp12').innerHTML = info.data.holes[11].teeBoxes[difficultyNum].hcp
+            document.getElementById('hdcp13').innerHTML = info.data.holes[12].teeBoxes[difficultyNum].hcp
+            document.getElementById('hdcp14').innerHTML = info.data.holes[13].teeBoxes[difficultyNum].hcp
+            document.getElementById('hdcp15').innerHTML = info.data.holes[14].teeBoxes[difficultyNum].hcp
+            document.getElementById('hdcp16').innerHTML = info.data.holes[15].teeBoxes[difficultyNum].hcp
+            document.getElementById('hdcp17').innerHTML = info.data.holes[16].teeBoxes[difficultyNum].hcp
+            document.getElementById('hdcp18').innerHTML = info.data.holes[17].teeBoxes[difficultyNum].hcp
+            
+
+            document.getElementById('par1').innerHTML = info.data.holes[0].teeBoxes[difficultyNum].par
+            document.getElementById('par2').innerHTML = info.data.holes[1].teeBoxes[difficultyNum].par
+            document.getElementById('par3').innerHTML = info.data.holes[2].teeBoxes[difficultyNum].par
+            document.getElementById('par4').innerHTML = info.data.holes[3].teeBoxes[difficultyNum].par
+            document.getElementById('par5').innerHTML = info.data.holes[4].teeBoxes[difficultyNum].par
+            document.getElementById('par6').innerHTML = info.data.holes[5].teeBoxes[difficultyNum].par
+            document.getElementById('par7').innerHTML = info.data.holes[6].teeBoxes[difficultyNum].par
+            document.getElementById('par8').innerHTML = info.data.holes[7].teeBoxes[difficultyNum].par
+            document.getElementById('par9').innerHTML = info.data.holes[8].teeBoxes[difficultyNum].par
+            document.getElementById('par10').innerHTML = info.data.holes[9].teeBoxes[difficultyNum].par
+            document.getElementById('par11').innerHTML = info.data.holes[10].teeBoxes[difficultyNum].par
+            document.getElementById('par12').innerHTML = info.data.holes[11].teeBoxes[difficultyNum].par
+            document.getElementById('par13').innerHTML = info.data.holes[12].teeBoxes[difficultyNum].par
+            document.getElementById('par14').innerHTML = info.data.holes[13].teeBoxes[difficultyNum].par
+            document.getElementById('par15').innerHTML = info.data.holes[14].teeBoxes[difficultyNum].par
+            document.getElementById('par16').innerHTML = info.data.holes[15].teeBoxes[difficultyNum].par
+            document.getElementById('par17').innerHTML = info.data.holes[16].teeBoxes[difficultyNum].par
+            document.getElementById('par18').innerHTML = info.data.holes[17].teeBoxes[difficultyNum].par
             }   
         )
         
