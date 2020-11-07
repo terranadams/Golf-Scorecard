@@ -3,6 +3,7 @@ let playerCount
 let players = []
 let cardStuff = document.getElementById('cardStuff')
 let courseID
+let difficulty
 let coursePromise
 let nameInputHTML = `<h4>Gimme names</h4>`
 
@@ -10,8 +11,10 @@ function getNames() {
 
     course = document.getElementById('course').value
     playerCount = document.getElementById('playerCount').value
+    difficulty = document.getElementById('difficulty').value
     console.log("Course chosen: " + course)
     console.log("Number of players: " + playerCount)
+    console.log("Difficulty chosen: " + difficulty)
     if(course == 'Fox Hollow') courseID = 18300
     if(course == 'Thanksgiving Point') courseID = 11819
     if(course == 'Spanish Oaks') courseID = 19002
@@ -21,7 +24,7 @@ function getNames() {
         `https://golf-courses-api.herokuapp.com/courses/${courseID}`
         )
         .then(res => res.json())
-        .then(info => console.log(info.data.status))
+        .then(info => console.log(info.data.holes[0]))
         
         
 

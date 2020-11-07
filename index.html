@@ -16,15 +16,14 @@
 <div id="names">
   
   <label for="courses">Choose a course:</label>
-
   <select name="courses" id="course" class="form-control col-6">
     <option value="Fox Hollow">Fox Hollow</option>
     <option value="Thanksgiving Point">Thanksgiving Point</option>
     <option value="Spanish Oaks">Spanish Oaks</option>
   </select>
 <br>
-<label>How many players are playing?</label>
 
+<label>How many players are playing?</label>
 <select name="playerCount" id="playerCount" class="form-control col-1">
   <option value="1">1</option>
   <option value="2">2</option>
@@ -32,7 +31,17 @@
   <option value="4">4</option>
 </select>
 <br>
+
+<label>Choose difficulty</label>
+<select name="difficulty" id="difficulty" class="form-control col-3">
+  <option value="pro">Pro</option>
+  <option value="champion">Champion</option>
+  <option value="men">Men</option>
+  <option value="women">Women</option>
+</select>
+<br>
 <button onclick="getNames()" class="btn btn-success">Continue</button>
+
 </div>
 
 <div id="cardStuff">
