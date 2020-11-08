@@ -23,6 +23,9 @@ function getNames() {
     if(difficulty == 'champion') difficultyNum = 1
     if(difficulty == 'men') difficultyNum = 2
     if(difficulty == 'women') difficultyNum = 3
+    if(difficulty == 'champion' && course == 'Spanish Oaks') difficultyNum = 0
+    if(difficulty == 'men' && course == 'Spanish Oaks') difficultyNum = 1
+    if(difficulty == 'women' && course == 'Spanish Oaks') difficultyNum = 2
 
     coursePromise = fetch(
         `https://golf-courses-api.herokuapp.com/courses/${courseID}`
