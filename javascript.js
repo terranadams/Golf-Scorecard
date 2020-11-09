@@ -6,7 +6,7 @@ let courseID
 let difficulty
 let difficultyNum
 let coursePromise
-let nameInputHTML = `<h4>Gimme names</h4>`
+let nameInputHTML = `<label>Gimme names:</label>`
 
 function getNames() {
 
@@ -111,15 +111,15 @@ function startGame() {
 
         let newPlayerHTML1 = `<div class="row">
         <div class="col-1 leftColumn player${i}">${players[i]}</div>
-        <div class="col-1 text-center" id="player${i}hole1"></div>
-        <div class="col-1 text-center" id="player${i}hole2"></div>
-        <div class="col-1 text-center" id="player${i}hole3"></div>
-        <div class="col-1 text-center" id="player${i}hole4"></div>
-        <div class="col-1 text-center" id="player${i}hole5"></div>
-        <div class="col-1 text-center" id="player${i}hole6"></div>
-        <div class="col-1 text-center" id="player${i}hole7"></div>
-        <div class="col-1 text-center" id="player${i}hole8"></div>
-        <div class="col-1 text-center" id="player${i}hole9"></div>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole1"></input>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole2"></input>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole3"></input>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole4"></input>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole5"></input>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole6"></input>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole7"></input>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole8"></input>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole9"></input>
         <div class="col-1 text-center" id="player${i}out"></div>
         <div class="col-1 text-center" id="player${i}total"></div>
       </div>`
@@ -127,15 +127,15 @@ function startGame() {
 
         let newPlayerHTML2 = `<div class="row">
         <div class="col-1 leftColumn player${i}">${players[i]}</div>
-        <div class="col-1 text-center" id="player${i}hole10"></div>
-        <div class="col-1 text-center" id="player${i}hole11"></div>
-        <div class="col-1 text-center" id="player${i}hole12"></div>
-        <div class="col-1 text-center" id="player${i}hole13"></div>
-        <div class="col-1 text-center" id="player${i}hole14"></div>
-        <div class="col-1 text-center" id="player${i}hole15"></div>
-        <div class="col-1 text-center" id="player${i}hole16"></div>
-        <div class="col-1 text-center" id="player${i}hole17"></div>
-        <div class="col-1 text-center" id="player${i}hole18"></div>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole10"></input>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole11"></input>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole12"></input>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole13"></input>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole14"></input>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole15"></input>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole16"></input>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole17"></input>
+        <input type="number" min="1" class="col-1 text-center" id="player${i}hole18"></input>
         <div class="col-1 text-center" id="player${i}in"></div>
         <div class="col-1 text-center" id="player${i}total"></div>
       </div>`
