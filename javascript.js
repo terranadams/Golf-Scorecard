@@ -157,9 +157,8 @@ function add(playerNum) {
     for (let i = 0; i < playerCount; i++) {
         for (let j = 1; j <= 18; j++) {
             total += Number(document.getElementById(`player${i}hole${j}`).value)
-            //document.getElementById(`player${i}total`).innerHTML = total
+            document.getElementById(`player${i}total`).innerHTML = total
         }
-        console.log(total)
     }
 
     
