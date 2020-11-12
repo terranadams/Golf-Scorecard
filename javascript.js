@@ -103,6 +103,13 @@ function getNames() {
     }
     nameInputHTML += '<br><button onclick="startGame()" class="btn btn-success">Start</button>'
     document.getElementById('names').innerHTML = nameInputHTML
+
+    let yardsTotal = 0
+    for (let i = 1; i <= 18; i++) {
+        yardsTotal += Number(document.getElementById('yards${i}').value); // This apparently doesn't exist
+        console.log(yardsTotal)
+        //document.getElementsByClassName('yardsTotal').innerHTML = yardsTotal
+    }
     
 }
 
@@ -112,18 +119,19 @@ function startGame() {
     }
 
 
-    if (
-        playerCheck[0] == playerCheck[1] || playerCheck[0] == playerCheck[2] || playerCheck[0] == playerCheck[3] || 
-        playerCheck[1] == playerCheck[2] || playerCheck[1] == playerCheck[3] || playerCheck[2] == playerCheck[3]
-        ) { 
-            alert("Please make sure the player names are different.");
-            playerCheck = []
-        }
+    // if (
+    //     playerCheck[0] == playerCheck[1] || playerCheck[0] == playerCheck[2] || playerCheck[0] == playerCheck[3] || 
+    //     playerCheck[1] == playerCheck[2] || playerCheck[1] == playerCheck[3] || playerCheck[2] == playerCheck[3]
+    //     ) { 
+    //         alert("Please make sure the player names are different.");
+    //         playerCheck = []
+    //     }
     
 
-    else {
+    //else {
         for (let i = 0; i < playerCount; i++) {
         players.push(document.getElementById(`playerNumber${i}`).value);
+        console.log(players)
 
         let newPlayerHTML1 = `<div class="row">
         <div class="col-1 leftColumn player${i}">${players[i]}</div>
@@ -159,7 +167,9 @@ function startGame() {
     
     document.getElementById('courseName').innerHTML = course
     document.getElementById('names').remove();
-}
+
+    
+//}
 }
 
 
