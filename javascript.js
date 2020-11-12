@@ -106,7 +106,15 @@ function getNames() {
 }
 
 function startGame() {
-    for (let i = 0; i < playerCount; i++) {
+    if (document.getElementById('playerNumber0').value == document.getElementById('playerNumber1').value) alert("Please make sure the player names are different.")
+    if (document.getElementById('playerNumber0').value == document.getElementById('playerNumber2').value) alert("Please make sure the player names are different.")
+    if (document.getElementById('playerNumber0').value == document.getElementById('playerNumber3').value) alert("Please make sure the player names are different.")
+    if (document.getElementById('playerNumber1').value == document.getElementById('playerNumber2').value) alert("Please make sure the player names are different.")
+    if (document.getElementById('playerNumber1').value == document.getElementById('playerNumber3').value) alert("Please make sure the player names are different.")
+    if (document.getElementById('playerNumber2').value == document.getElementById('playerNumber3').value) alert("Please make sure the player names are different.")
+
+    else {
+        for (let i = 0; i < playerCount; i++) {
         players.push(document.getElementById(`playerNumber${i}`).value);
 
         let newPlayerHTML1 = `<div class="row">
@@ -143,6 +151,7 @@ function startGame() {
     
     document.getElementById('courseName').innerHTML = course
     document.getElementById('names').remove();
+}
 }
 
 
