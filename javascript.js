@@ -7,6 +7,7 @@ let difficulty
 let difficultyNum
 let coursePromise
 let nameInputHTML = `<label>Gimme names:</label>`
+let playerCheck = []
 
 function getNames() {
 
@@ -106,12 +107,19 @@ function getNames() {
 }
 
 function startGame() {
-    if (document.getElementById('playerNumber0').value == document.getElementById('playerNumber1').value) alert("Please make sure the player names are different.")
-    if (document.getElementById('playerNumber0').value == document.getElementById('playerNumber2').value) alert("Please make sure the player names are different.")
-    if (document.getElementById('playerNumber0').value == document.getElementById('playerNumber3').value) alert("Please make sure the player names are different.")
-    if (document.getElementById('playerNumber1').value == document.getElementById('playerNumber2').value) alert("Please make sure the player names are different.")
-    if (document.getElementById('playerNumber1').value == document.getElementById('playerNumber3').value) alert("Please make sure the player names are different.")
-    if (document.getElementById('playerNumber2').value == document.getElementById('playerNumber3').value) alert("Please make sure the player names are different.")
+    for (let i = 0; i < playerCount; i++) {
+        playerCheck.push(document.getElementById(`playerNumber${i}`).value)
+    }
+
+
+    if (
+        playerCheck[0] == playerCheck[1] || playerCheck[0] == playerCheck[2] || playerCheck[0] == playerCheck[3] || 
+        playerCheck[1] == playerCheck[2] || playerCheck[1] == playerCheck[3] || playerCheck[2] == playerCheck[3]
+        ) { 
+            alert("Please make sure the player names are different.");
+            playerCheck = []
+        }
+    
 
     else {
         for (let i = 0; i < playerCount; i++) {
