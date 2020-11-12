@@ -121,7 +121,6 @@ function startGame() {
         <input type="number" min="1" onclick="add(${i})" class="col-1 text-center" id="player${i}hole8"></input>
         <input type="number" min="1" onclick="add(${i})" class="col-1 text-center" id="player${i}hole9"></input>
         <div class="col-1 text-center" id="player${i}out"></div>
-        <div class="col-1 text-center" id="player${i}total"></div>
       </div>`
         document.getElementById('cardStuff1').innerHTML += newPlayerHTML1;
 
@@ -146,18 +145,14 @@ function startGame() {
     document.getElementById('names').remove();
 }
 
-let player0scores
-let player1scores
-let player2scores
-let player3scores
 
 
 function add(playerNum) {
-    let total = 0
+    let playerTotal = 0
     for (let i = 0; i < playerCount; i++) {
         for (let j = 1; j <= 18; j++) {
-            total += Number(document.getElementById(`player${i}hole${j}`).value)
-            document.getElementById(`player${i}total`).innerHTML = total
+            playerTotal += Number(document.getElementById(`player${i}hole${j}`).value)
+            document.getElementById(`player${i}total`).innerHTML = playerTotal
         }
     }
 
