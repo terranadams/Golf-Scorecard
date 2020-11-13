@@ -165,7 +165,7 @@ function startGame() {
       document.getElementById('cardStuff2').innerHTML += newPlayerHTML2
 
       let totalsDivHTML = `
-      <div class="player${i}total">${players[i]}'s total: </div>
+      <div id="player${i}total"></div>
       `
       document.getElementById(`playerTotals`).innerHTML += totalsDivHTML
       
@@ -192,9 +192,9 @@ function add(playerNum) {
     for (let i = 0; i < playerCount; i++) {
         for (let j = 1; j <= 18; j++) {
             playerTotal += Number(document.getElementById(`player${i}hole${j}`).value)
-            // document.getElementById(`player${i}total`).innerHTML += playerTotal
         }
-        console.log(playerTotal)
+        
+        document.getElementById(`player${i}total`).innerHTML = `${players[i]}'s total: ${playerTotal}`
     }
 
     
