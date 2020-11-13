@@ -186,15 +186,16 @@ function startGame() {
 
 
 
-
-function add(playerNum) {
-    let playerTotal = 0
+    
+    
+    function add(playerNum) {
+        let playerTotals = [0, 0, 0, 0]
     for (let i = 0; i < playerCount; i++) {
         for (let j = 1; j <= 18; j++) {
-            playerTotal += Number(document.getElementById(`player${i}hole${j}`).value)
+            playerTotals[i] += Number(document.getElementById(`player${i}hole${j}`).value)
         }
         
-        document.getElementById(`player${i}total`).innerHTML = `${players[i]}'s total: ${playerTotal}`
+        document.getElementById(`player${i}total`).innerHTML = `${players[i]}'s total: ${playerTotals[i]}`
     }
 
     
