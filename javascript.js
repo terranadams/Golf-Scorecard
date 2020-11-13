@@ -116,7 +116,6 @@ function getNames() {
     nameInputHTML += '<br><button onclick="startGame()" class="btn btn-success">Start</button>'
     document.getElementById('names').innerHTML = nameInputHTML
 
-    // testing git
     
 }
 
