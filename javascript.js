@@ -145,6 +145,7 @@ function startGame() {
         <input type="number" min="1" onclick="add(${i})" class="col-1 text-center" id="player${i}hole8"></input>
         <input type="number" min="1" onclick="add(${i})" class="col-1 text-center" id="player${i}hole9"></input>
         <div class="col-1 text-center" id="player${i}out"></div>
+        <div class="col-1"></div>
       </div>`
         document.getElementById('cardStuff1').innerHTML += newPlayerHTML1;
     
