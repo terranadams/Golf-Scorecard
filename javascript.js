@@ -8,6 +8,8 @@ let difficultyNum
 let coursePromise
 let nameInputHTML = `<label>Gimme names:</label>`
 let playerCheck = []
+let yardsTotal = 0
+let handicapTotal = 0
 
 function getNames() {
 
@@ -52,6 +54,10 @@ function getNames() {
             document.getElementById('yards17').innerHTML = info.data.holes[16].teeBoxes[difficultyNum].yards
             document.getElementById('yards18').innerHTML = info.data.holes[17].teeBoxes[difficultyNum].yards
 
+            for (let i = 0; i < 17; i++) {
+                yardsTotal += info.data.holes[i].teeBoxes[difficultyNum].yards;
+                document.getElementById('yardsTotal').innerHTML = yardsTotal
+            }
 
             document.getElementById('hdcp1').innerHTML = info.data.holes[0].teeBoxes[difficultyNum].hcp
             document.getElementById('hdcp2').innerHTML = info.data.holes[1].teeBoxes[difficultyNum].hcp
@@ -72,6 +78,10 @@ function getNames() {
             document.getElementById('hdcp17').innerHTML = info.data.holes[16].teeBoxes[difficultyNum].hcp
             document.getElementById('hdcp18').innerHTML = info.data.holes[17].teeBoxes[difficultyNum].hcp
             
+            for (let i = 0; i < 17; i++) {
+                handicapTotal += info.data.holes[i].teeBoxes[difficultyNum].hcp;
+                document.getElementById('handicapTotal').innerHTML = handicapTotal
+            }
 
             document.getElementById('par1').innerHTML = info.data.holes[0].teeBoxes[difficultyNum].par
             document.getElementById('par2').innerHTML = info.data.holes[1].teeBoxes[difficultyNum].par
@@ -91,6 +101,8 @@ function getNames() {
             document.getElementById('par16').innerHTML = info.data.holes[15].teeBoxes[difficultyNum].par
             document.getElementById('par17').innerHTML = info.data.holes[16].teeBoxes[difficultyNum].par
             document.getElementById('par18').innerHTML = info.data.holes[17].teeBoxes[difficultyNum].par
+
+
             }   
         )
         
@@ -104,12 +116,7 @@ function getNames() {
     nameInputHTML += '<br><button onclick="startGame()" class="btn btn-success">Start</button>'
     document.getElementById('names').innerHTML = nameInputHTML
 
-    // let yardsTotal = 0
-    // for (let i = 1; i <= 18; i++) {
-    //     yardsTotal += Number(document.getElementById('yards${i}').value); // This apparently doesn't exist
-    //     console.log(yardsTotal)
-    //     document.getElementsByClassName('yardsTotal').innerHTML = yardsTotal
-    // }
+    
     
 }
 
