@@ -56,7 +56,7 @@ function getNames() {
 
             for (let i = 0; i < 17; i++) {
                 yardsTotal += info.data.holes[i].teeBoxes[difficultyNum].yards;
-                document.getElementById('yardsTotal').innerHTML = yardsTotal
+                document.getElementById('yardsTotal').innerHTML = `Yards total: ${yardsTotal}`
             }
 
             document.getElementById('hdcp1').innerHTML = info.data.holes[0].teeBoxes[difficultyNum].hcp
@@ -80,7 +80,7 @@ function getNames() {
             
             for (let i = 0; i < 17; i++) {
                 handicapTotal += info.data.holes[i].teeBoxes[difficultyNum].hcp;
-                document.getElementById('handicapTotal').innerHTML = handicapTotal
+                document.getElementById('handicapTotal').innerHTML = `HDCP total: ${handicapTotal}`
             }
 
             document.getElementById('par1').innerHTML = info.data.holes[0].teeBoxes[difficultyNum].par
@@ -145,7 +145,6 @@ function startGame() {
         <input type="number" min="1" onclick="add(${i})" class="col-1 text-center" id="player${i}hole8"></input>
         <input type="number" min="1" onclick="add(${i})" class="col-1 text-center" id="player${i}hole9"></input>
         <div class="col-1 text-center" id="player${i}out"></div>
-        <div class="col-1"></div>
       </div>`
         document.getElementById('cardStuff1').innerHTML += newPlayerHTML1;
     
@@ -161,9 +160,16 @@ function startGame() {
         <input type="number" min="1" onclick="add(${i})" class="col-1 text-center" id="player${i}hole17"></input>
         <input type="number" min="1" onclick="add(${i})" class="col-1 text-center" id="player${i}hole18"></input>
         <div class="col-1 text-center" id="player${i}in"></div>
-        <div class="col-1 text-center" id="player${i}total"></div>
       </div>`
-        document.getElementById('cardStuff2').innerHTML += newPlayerHTML2
+
+      document.getElementById('cardStuff2').innerHTML += newPlayerHTML2
+
+      let totalsDivHTML = `
+      <div class="player${i}total">${players[i]}'s total: </div>
+      `
+      document.getElementById(`playerTotals`).innerHTML += totalsDivHTML
+      
+
             }
         //}
         
@@ -186,8 +192,9 @@ function add(playerNum) {
     for (let i = 0; i < playerCount; i++) {
         for (let j = 1; j <= 18; j++) {
             playerTotal += Number(document.getElementById(`player${i}hole${j}`).value)
-            document.getElementById(`player${i}total`).innerHTML = playerTotal
+            // document.getElementById(`player${i}total`).innerHTML += playerTotal
         }
+        console.log(playerTotal)
     }
 
     

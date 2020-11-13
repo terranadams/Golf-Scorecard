@@ -1,193 +1,204 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="style.css">
-    <title>Golf Scorecard</title>
-  </head>
-  <body>
-<br>
-<div id="names">
-  
-  <label for="courses">Choose a course:</label>
-  <select name="courses" id="course" class="form-control col-6">
-    <option value="Fox Hollow">Fox Hollow</option>
-    <option value="Thanksgiving Point">Thanksgiving Point</option>
-    <option value="Spanish Oaks">Spanish Oaks</option>
-  </select>
-<br>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-<label>How many players are playing?</label>
-<select name="playerCount" id="playerCount" class="form-control col-2">
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-</select>
-<br>
+  <link rel="stylesheet" href="style.css">
+  <title>Golf Scorecard</title>
+</head>
 
-<label>Choose difficulty</label>
-<select name="difficulty" id="difficulty" class="form-control col-4">
-  <option value="champion">Champion</option>
-  <option value="pro">Pro (Champion if Spanish Oaks)</option>
-  <option value="men">Men</option>
-  <option value="women">Women</option>
-</select>
-<br>
-<button onclick="getNames()" class="btn btn-success">Continue</button>
+<body>
+  <br>
+  <div id="names">
 
-</div>
+    <label for="courses">Choose a course:</label>
+    <select name="courses" id="course" class="form-control col-6">
+      <option value="Fox Hollow">Fox Hollow</option>
+      <option value="Thanksgiving Point">Thanksgiving Point</option>
+      <option value="Spanish Oaks">Spanish Oaks</option>
+    </select>
+    <br>
 
-<div id="cardStuff">
-  <h3 id="courseName"></h3>
-  <div id="cardStuff1">
-  <div class="row">
-      <div class="col-1 leftColumn text-center">HOLE</div>
-      <div class="col-1 text-center">1</div>
-      <div class="col-1 text-center">2</div>
-      <div class="col-1 text-center">3</div>
-      <div class="col-1 text-center">4</div>
-      <div class="col-1 text-center">5</div>
-      <div class="col-1 text-center">6</div>
-      <div class="col-1 text-center">7</div>
-      <div class="col-1 text-center">8</div>
-      <div class="col-1 text-center">9</div>
-      <div class="col-1 text-center">OUT</div>
-      <div class="col-1 text-center"></div>
+    <label>How many players are playing?</label>
+    <select name="playerCount" id="playerCount" class="form-control col-2">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+    <br>
+
+    <label>Choose difficulty</label>
+    <select name="difficulty" id="difficulty" class="form-control col-4">
+      <option value="champion">Champion</option>
+      <option value="pro">Pro (Champion if Spanish Oaks)</option>
+      <option value="men">Men</option>
+      <option value="women">Women</option>
+    </select>
+    <br>
+    <button onclick="getNames()" class="btn btn-success">Continue</button>
+
   </div>
 
-  <div class="row">
-    <div class="col-1 leftColumn">YARDS</div>
-    <div class="col-1 text-center" id="yards1"></div>
-    <div class="col-1 text-center" id="yards2"></div>
-    <div class="col-1 text-center" id="yards3"></div>
-    <div class="col-1 text-center" id="yards4"></div>
-    <div class="col-1 text-center" id="yards5"></div>
-    <div class="col-1 text-center" id="yards6"></div>
-    <div class="col-1 text-center" id="yards7"></div>
-    <div class="col-1 text-center" id="yards8"></div>
-    <div class="col-1 text-center" id="yards9"></div>
-    <div class="col-1 text-center"></div>
-    <div class="col-1 text-center"></div>
+  <div id="cardStuff">
+    <h3 id="courseName"></h3>
+    <div id="cardStuff1">
+      <div class="row">
+        <div class="col-1 leftColumn">HOLE</div>
+        <div class="col-1 text-center">1</div>
+        <div class="col-1 text-center">2</div>
+        <div class="col-1 text-center">3</div>
+        <div class="col-1 text-center">4</div>
+        <div class="col-1 text-center">5</div>
+        <div class="col-1 text-center">6</div>
+        <div class="col-1 text-center">7</div>
+        <div class="col-1 text-center">8</div>
+        <div class="col-1 text-center">9</div>
+        <div class="col-1 text-center">OUT</div>
+      </div>
+
+      <div class="row">
+        <div class="col-1 leftColumn">YARDS</div>
+        <div class="col-1 text-center" id="yards1"></div>
+        <div class="col-1 text-center" id="yards2"></div>
+        <div class="col-1 text-center" id="yards3"></div>
+        <div class="col-1 text-center" id="yards4"></div>
+        <div class="col-1 text-center" id="yards5"></div>
+        <div class="col-1 text-center" id="yards6"></div>
+        <div class="col-1 text-center" id="yards7"></div>
+        <div class="col-1 text-center" id="yards8"></div>
+        <div class="col-1 text-center" id="yards9"></div>
+        <div class="col-1 text-center"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-1 leftColumn">HDCP</div>
+        <div class="col-1 text-center" id="hdcp1"></div>
+        <div class="col-1 text-center" id="hdcp2"></div>
+        <div class="col-1 text-center" id="hdcp3"></div>
+        <div class="col-1 text-center" id="hdcp4"></div>
+        <div class="col-1 text-center" id="hdcp5"></div>
+        <div class="col-1 text-center" id="hdcp6"></div>
+        <div class="col-1 text-center" id="hdcp7"></div>
+        <div class="col-1 text-center" id="hdcp8"></div>
+        <div class="col-1 text-center" id="hdcp9"></div>
+        <div class="col-1 text-center"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-1 leftColumn">PAR</div>
+        <div class="col-1 text-center" id="par1"></div>
+        <div class="col-1 text-center" id="par2"></div>
+        <div class="col-1 text-center" id="par3"></div>
+        <div class="col-1 text-center" id="par4"></div>
+        <div class="col-1 text-center" id="par5"></div>
+        <div class="col-1 text-center" id="par6"></div>
+        <div class="col-1 text-center" id="par7"></div>
+        <div class="col-1 text-center" id="par8"></div>
+        <div class="col-1 text-center" id="par9"></div>
+        <div class="col-1 text-center"></div>
+      </div>
+    </div>
+
+
+    <hr>
+
+
+    <div id="cardStuff2">
+      <div class="row">
+        <div class="col-1 leftColumn">HOLE</div>
+        <div class="col-1 text-center">10</div>
+        <div class="col-1 text-center">11</div>
+        <div class="col-1 text-center">12</div>
+        <div class="col-1 text-center">13</div>
+        <div class="col-1 text-center">14</div>
+        <div class="col-1 text-center">15</div>
+        <div class="col-1 text-center">16</div>
+        <div class="col-1 text-center">17</div>
+        <div class="col-1 text-center">18</div>
+        <div class="col-1 text-center">IN</div>
+      </div>
+
+      <div class="row">
+        <div class="col-1 leftColumn">YARDS</div>
+        <div class="col-1 text-center" id="yards10"></div>
+        <div class="col-1 text-center" id="yards11"></div>
+        <div class="col-1 text-center" id="yards12"></div>
+        <div class="col-1 text-center" id="yards13"></div>
+        <div class="col-1 text-center" id="yards14"></div>
+        <div class="col-1 text-center" id="yards15"></div>
+        <div class="col-1 text-center" id="yards16"></div>
+        <div class="col-1 text-center" id="yards17"></div>
+        <div class="col-1 text-center" id="yards18"></div>
+        <div class="col-1 text-center"></div>
+      </div>
+      
+      <div class="row">
+        <div class="col-1 leftColumn handicap">HDCP</div>
+        <div class="col-1 text-center" id="hdcp10"></div>
+        <div class="col-1 text-center" id="hdcp11"></div>
+        <div class="col-1 text-center" id="hdcp12"></div>
+        <div class="col-1 text-center" id="hdcp13"></div>
+        <div class="col-1 text-center" id="hdcp14"></div>
+        <div class="col-1 text-center" id="hdcp15"></div>
+        <div class="col-1 text-center" id="hdcp16"></div>
+        <div class="col-1 text-center" id="hdcp17"></div>
+        <div class="col-1 text-center" id="hdcp18"></div>
+        <div class="col-1 text-center"></div>
+      </div>
+      
+      <div class="row" id="parRow">
+        <div class="col-1 leftColumn">PAR</div>
+        <div class="col-1 text-center" id="par10"></div>
+        <div class="col-1 text-center" id="par11"></div>
+        <div class="col-1 text-center" id="par12"></div>
+        <div class="col-1 text-center" id="par13"></div>
+        <div class="col-1 text-center" id="par14"></div>
+        <div class="col-1 text-center" id="par15"></div>
+        <div class="col-1 text-center" id="par16"></div>
+        <div class="col-1 text-center" id="par17"></div>
+        <div class="col-1 text-center" id="par18"></div>
+        <div class="col-1 text-center"></div>
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="yardsTotal"></div>
+  
+  
+    <div id="handicapTotal"></div>
+
+    <div id="playerTotals"></div>
+
+
+
   </div>
 
-  <div class="row">
-    <div class="col-1 leftColumn">HDCP</div>
-    <div class="col-1 text-center" id="hdcp1"></div>
-    <div class="col-1 text-center" id="hdcp2"></div>
-    <div class="col-1 text-center" id="hdcp3"></div>
-    <div class="col-1 text-center" id="hdcp4"></div>
-    <div class="col-1 text-center" id="hdcp5"></div>
-    <div class="col-1 text-center" id="hdcp6"></div>
-    <div class="col-1 text-center" id="hdcp7"></div>
-    <div class="col-1 text-center" id="hdcp8"></div>
-    <div class="col-1 text-center" id="hdcp9"></div>
-    <div class="col-1 text-center"></div>
-    <div class="col-1 text-center"></div>
-  </div>
-  
-  <div class="row">
-    <div class="col-1 leftColumn">PAR</div>
-    <div class="col-1 text-center" id="par1"></div>
-    <div class="col-1 text-center" id="par2"></div>
-    <div class="col-1 text-center" id="par3"></div>
-    <div class="col-1 text-center" id="par4"></div>
-    <div class="col-1 text-center" id="par5"></div>
-    <div class="col-1 text-center" id="par6"></div>
-    <div class="col-1 text-center" id="par7"></div>
-    <div class="col-1 text-center" id="par8"></div>
-    <div class="col-1 text-center" id="par9"></div>
-    <div class="col-1 text-center"></div>
-    <div class="col-1 text-center"></div>
-</div>
-</div>
-  
 
-  <hr>
-  
+  <!-- Optional JavaScript; choose one of the two! -->
+  <script src="javascript.js"></script>
 
-  <div id="cardStuff2">
-    <div class="row">
-      <div class="col-1 leftColumn">HOLE</div>
-      <div class="col-1 text-center">10</div>
-      <div class="col-1 text-center">11</div>
-      <div class="col-1 text-center">12</div>
-      <div class="col-1 text-center">13</div>
-      <div class="col-1 text-center">14</div>
-      <div class="col-1 text-center">15</div>
-      <div class="col-1 text-center">16</div>
-      <div class="col-1 text-center">17</div>
-      <div class="col-1 text-center">18</div>
-      <div class="col-1 text-center">IN</div>
-      <div class="col-1 text-center">TOTAL</div>
-    </div>
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
 
-    <div class="row">
-      <div class="col-1 leftColumn">YARDS</div>
-      <div class="col-1 text-center" id="yards10"></div>
-      <div class="col-1 text-center" id="yards11"></div>
-      <div class="col-1 text-center" id="yards12"></div>
-      <div class="col-1 text-center" id="yards13"></div>
-      <div class="col-1 text-center" id="yards14"></div>
-      <div class="col-1 text-center" id="yards15"></div>
-      <div class="col-1 text-center" id="yards16"></div>
-      <div class="col-1 text-center" id="yards17"></div>
-      <div class="col-1 text-center" id="yards18"></div>
-      <div class="col-1 text-center"></div>
-      <div class="col-1 text-center" id="yardsTotal"></div>
-    </div>
-  
-    <div class="row">
-      <div class="col-1 leftColumn handicap">HDCP</div>
-      <div class="col-1 text-center" id="hdcp10"></div>
-      <div class="col-1 text-center" id="hdcp11"></div>
-      <div class="col-1 text-center" id="hdcp12"></div>
-      <div class="col-1 text-center" id="hdcp13"></div>
-      <div class="col-1 text-center" id="hdcp14"></div>
-      <div class="col-1 text-center" id="hdcp15"></div>
-      <div class="col-1 text-center" id="hdcp16"></div>
-      <div class="col-1 text-center" id="hdcp17"></div>
-      <div class="col-1 text-center" id="hdcp18"></div>
-      <div class="col-1 text-center"></div>
-      <div class="col-1 text-center" id="handicapTotal"></div>
-    </div>
-    
-    <div class="row" id="parRow">
-      <div class="col-1 leftColumn">PAR</div>
-      <div class="col-1 text-center" id="par10"></div>
-      <div class="col-1 text-center" id="par11"></div>
-      <div class="col-1 text-center" id="par12"></div>
-      <div class="col-1 text-center" id="par13"></div>
-      <div class="col-1 text-center" id="par14"></div>
-      <div class="col-1 text-center" id="par15"></div>
-      <div class="col-1 text-center" id="par16"></div>
-      <div class="col-1 text-center" id="par17"></div>
-      <div class="col-1 text-center" id="par18"></div>
-      <div class="col-1 text-center"></div>
-      <div class="col-1 text-center"></div>
-  </div>
-    </div>
-
-    </div>
-
-
-<!-- Optional JavaScript; choose one of the two! -->
-<script src="javascript.js"></script>
-
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
-    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+  <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     -->
-  </body>
+</body>
+
 </html>
