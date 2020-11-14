@@ -179,9 +179,6 @@ function startGame() {
 }
 
 
-
-
-
 function add(playerNum) {
     let playerTotals = [0, 0, 0, 0]
     for (let i = 0; i < playerCount; i++) {
