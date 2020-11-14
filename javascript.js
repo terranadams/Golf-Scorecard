@@ -10,6 +10,7 @@ let nameInputHTML = `<label>Gimme names:</label>`
 let playerCheck = []
 let yardsTotal = 0
 let handicapTotal = 0
+let parTotal = 0
 
 function getNames() {
 
@@ -102,7 +103,10 @@ function getNames() {
             document.getElementById('par17').innerHTML = info.data.holes[16].teeBoxes[difficultyNum].par
             document.getElementById('par18').innerHTML = info.data.holes[17].teeBoxes[difficultyNum].par
 
-
+            for (let i = 0; i < 17; i++) {
+                parTotal += info.data.holes[i].teeBoxes[difficultyNum].par;
+                document.getElementById('parTotal').innerHTML = `Par total: ${parTotal}`
+            }
             }   
         )
         
