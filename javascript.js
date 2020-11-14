@@ -197,6 +197,24 @@ function startGame() {
         document.getElementById(`player${i}total`).innerHTML = `${players[i]}'s total: ${playerTotals[i]}`
     }
 
+    let playerOuts = [0, 0, 0, 0]
+    for (let i = 0; i < playerCount; i++) {
+        for (let j = 1; j <= 9; j++) {
+            playerOuts[i] += Number(document.getElementById(`player${i}hole${j}`).value)
+        }
+        document.getElementById(`player${i}out`).innerHTML = playerOuts[i]
+    }
+
+    let playerIns = [0, 0, 0, 0]
+    for (let i = 0; i < playerCount; i++) {
+        for (let j = 10; j <= 18; j++) {
+            playerIns[i] += Number(document.getElementById(`player${i}hole${j}`).value)
+        }
+        document.getElementById(`player${i}in`).innerHTML = playerIns[i]
+    }
     
+
+    
+
 }
     
