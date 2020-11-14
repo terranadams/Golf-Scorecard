@@ -25,9 +25,9 @@ input {
 }
 #courseName {
     text-align: center;
-    color: rgb(178, 238, 178);
+    color: rgb(44, 65, 44);
     text-decoration: underline;
 }
 .totals {
-    color: rgb(178, 238, 178)
+    color: rgb(44, 65, 44);
 }

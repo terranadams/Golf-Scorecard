@@ -116,23 +116,26 @@ function getNames() {
             <input id="playerNumber${i}" class="form-control col-2" type="text" placeholder="Enter name " value="Terran"><br>
         `;
     }
-    nameInputHTML += '<br><button onclick="startGame()" class="btn btn-success">Start</button>' //Change onclick to checkNames()
+    nameInputHTML += '<br><button onclick="checkNames()" class="btn btn-success">Start</button>' //Change onclick to checkNames()
     document.getElementById('names').innerHTML = nameInputHTML
 
 
 }
 
-// function checkNames() {
-//     let playerCheck = []
-//     for (let i = 0; i < playerCount; i++) {
-//         playerCheck.push(document.getElementById(`playerNumber${i}`).value)
-//     }
+function checkNames() {
+    let playerCheck = []
+    for (let i = 0; i < playerCount; i++) {
+        playerCheck.push(document.getElementById(`playerNumber${i}`).value)
+    }
+    if (playerCheck[0] != playerCheck[1] && playerCheck[0] != playerCheck[2] && playerCheck[0] != playerCheck[3]
+        && playerCheck[1] != playerCheck[2] && playerCheck[1] != playerCheck[3] && playerCheck[2] != playerCheck[3]) startGame()
+    else { 
+        alert("Please make sure all the names are different.");
+        playerCheck = []
+    }
+}
 
-//     if (playerCheck[0] == playerCheck[1] || playerCheck[0] == playerCheck[2] || playerCheck[0] == playerCheck[3] || playerCheck[1] == playerCheck[2] || playerCheck[1] == playerCheck[3] || playerCheck[2] == playerCheck[3]) {
-//         alert('Please make sure each player has a unique name.')
-//         playerCheck = []
-//     } else { startGame() }
-// }
+
 
 function startGame() {
     for (let i = 0; i < playerCount; i++) {
@@ -204,8 +207,6 @@ function add(playerNum) {
         }
         document.getElementById(`player${i}in`).innerHTML = playerIns[i]
     }
-
-
 
 
 }
