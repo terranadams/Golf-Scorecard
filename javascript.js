@@ -7,7 +7,6 @@ let difficulty
 let difficultyNum
 let coursePromise
 let nameInputHTML = `<label>Gimme names:</label>`
-let playerCheck = []
 let yardsTotal = 0
 let handicapTotal = 0
 let parTotal = 0
@@ -20,20 +19,20 @@ function getNames() {
     console.log("Course chosen: " + course)
     console.log("Number of players: " + playerCount)
     console.log("Difficulty chosen: " + difficulty)
-    if(course == 'Fox Hollow') courseID = 18300
-    if(course == 'Thanksgiving Point') courseID = 11819
-    if(course == 'Spanish Oaks') courseID = 19002
-    if(difficulty == 'pro') difficultyNum = 0
-    if(difficulty == 'champion') difficultyNum = 1
-    if(difficulty == 'men') difficultyNum = 2
-    if(difficulty == 'women') difficultyNum = 3
-    if(difficulty == 'champion' && course == 'Spanish Oaks') difficultyNum = 0
-    if(difficulty == 'men' && course == 'Spanish Oaks') difficultyNum = 1
-    if(difficulty == 'women' && course == 'Spanish Oaks') difficultyNum = 2
+    if (course == 'Fox Hollow') courseID = 18300
+    if (course == 'Thanksgiving Point') courseID = 11819
+    if (course == 'Spanish Oaks') courseID = 19002
+    if (difficulty == 'pro') difficultyNum = 0
+    if (difficulty == 'champion') difficultyNum = 1
+    if (difficulty == 'men') difficultyNum = 2
+    if (difficulty == 'women') difficultyNum = 3
+    if (difficulty == 'champion' && course == 'Spanish Oaks') difficultyNum = 0
+    if (difficulty == 'men' && course == 'Spanish Oaks') difficultyNum = 1
+    if (difficulty == 'women' && course == 'Spanish Oaks') difficultyNum = 2
 
     coursePromise = fetch(
         `https://golf-courses-api.herokuapp.com/courses/${courseID}`
-        )
+    )
         .then(res => res.json())
         .then(info => {
             document.getElementById('yards1').innerHTML = info.data.holes[0].teeBoxes[difficultyNum].yards
@@ -78,7 +77,7 @@ function getNames() {
             document.getElementById('hdcp16').innerHTML = info.data.holes[15].teeBoxes[difficultyNum].hcp
             document.getElementById('hdcp17').innerHTML = info.data.holes[16].teeBoxes[difficultyNum].hcp
             document.getElementById('hdcp18').innerHTML = info.data.holes[17].teeBoxes[difficultyNum].hcp
-            
+
             for (let i = 0; i < 17; i++) {
                 handicapTotal += info.data.holes[i].teeBoxes[difficultyNum].hcp;
                 document.getElementById('handicapTotal').innerHTML = `HDCP total: ${handicapTotal}`
@@ -107,35 +106,38 @@ function getNames() {
                 parTotal += info.data.holes[i].teeBoxes[difficultyNum].par;
                 document.getElementById('parTotal').innerHTML = `Par total: ${parTotal}`
             }
-            }   
+        }
         )
-        
-        
 
-    for (let i = 0 ; i < playerCount; i++) {
+
+
+    for (let i = 0; i < playerCount; i++) {
         nameInputHTML += `
             <input id="playerNumber${i}" class="form-control col-2" type="text" placeholder="Enter name " value="Terran"><br>
         `;
     }
-    nameInputHTML += '<br><button onclick="startGame()" class="btn btn-success">Start</button>'
+    nameInputHTML += '<br><button onclick="startGame()" class="btn btn-success">Start</button>' //Change onclick to checkNames()
     document.getElementById('names').innerHTML = nameInputHTML
 
-    
+
 }
+
+// function checkNames() {
+//     let playerCheck = []
+//     for (let i = 0; i < playerCount; i++) {
+//         playerCheck.push(document.getElementById(`playerNumber${i}`).value)
+//     }
+
+//     if (playerCheck[0] == playerCheck[1] || playerCheck[0] == playerCheck[2] || playerCheck[0] == playerCheck[3] || playerCheck[1] == playerCheck[2] || playerCheck[1] == playerCheck[3] || playerCheck[2] == playerCheck[3]) {
+//         alert('Please make sure each player has a unique name.')
+//         playerCheck = []
+//     } else { startGame() }
+// }
 
 function startGame() {
     for (let i = 0; i < playerCount; i++) {
-        playerCheck.push(document.getElementById(`playerNumber${i}`).value)
-    }
-    console.log(playerCheck)
-
-    // if (
-    //     playerCheck[0] != playerCheck[1] && playerCheck[0] != playerCheck[2] && playerCheck[0] != playerCheck[3] && 
-    //     playerCheck[1] != playerCheck[2] && playerCheck[1] != playerCheck[3] && playerCheck[2] != playerCheck[3]
-    //     ) { 
-        for (let i = 0; i < playerCount; i++) {
         players.push(document.getElementById(`playerNumber${i}`).value);
-    
+
         let newPlayerHTML1 = `<div class="row">
         <div class="col-1 leftColumn player${i}">${players[i]}</div>
         <input type="number" min="1" onclick="add(${i})" class="col-1 text-center" id="player${i}hole1"></input>
@@ -150,7 +152,7 @@ function startGame() {
         <div class="col-1 text-center" id="player${i}out"></div>
       </div>`
         document.getElementById('cardStuff1').innerHTML += newPlayerHTML1;
-    
+
         let newPlayerHTML2 = `<div class="row">
         <div class="col-1 leftColumn player${i}">${players[i]}</div>
         <input type="number" min="1" onclick="add(${i})" class="col-1 text-center" id="player${i}hole10"></input>
@@ -165,39 +167,28 @@ function startGame() {
         <div class="col-1 text-center" id="player${i}in"></div>
       </div>`
 
-      document.getElementById('cardStuff2').innerHTML += newPlayerHTML2
+        document.getElementById('cardStuff2').innerHTML += newPlayerHTML2
 
-      let totalsDivHTML = `
+        let totalsDivHTML = `
       <div id="player${i}total"></div>
       `
-      document.getElementById(`playerTotals`).innerHTML += totalsDivHTML
-      
-
-            }
-        //}
-        
-        
-    // else {
-    //         alert("Please make sure the player names are different.");
-    //         playerCheck = []
-    //     }
-    
+        document.getElementById(`playerTotals`).innerHTML += totalsDivHTML
+    }
     document.getElementById('courseName').innerHTML = course
     document.getElementById('names').remove();
-
-    }
-
+}
 
 
-    
-    
-    function add(playerNum) {
-        let playerTotals = [0, 0, 0, 0]
+
+
+
+function add(playerNum) {
+    let playerTotals = [0, 0, 0, 0]
     for (let i = 0; i < playerCount; i++) {
         for (let j = 1; j <= 18; j++) {
             playerTotals[i] += Number(document.getElementById(`player${i}hole${j}`).value)
         }
-        
+
         document.getElementById(`player${i}total`).innerHTML = `${players[i]}'s total: ${playerTotals[i]}`
     }
 
@@ -216,9 +207,8 @@ function startGame() {
         }
         document.getElementById(`player${i}in`).innerHTML = playerIns[i]
     }
-    
 
-    
+
+
 
 }
-    
