@@ -113,7 +113,7 @@ function getNames() {
 
     for (let i = 0; i < playerCount; i++) {
         nameInputHTML += `
-            <input id="playerNumber${i}" class="form-control col-2" type="text" placeholder="Enter name " value="Terran"><br>
+            <input id="playerNumber${i}" class="form-control col-3" type="text" placeholder="Enter name " value="Terran"><br>
         `;
     }
     nameInputHTML += '<br><button onclick="checkNames()" class="btn btn-success">Start</button>' 
