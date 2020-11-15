@@ -240,10 +240,17 @@ function add(playerNum) {
 
 function endGame(playerCount, playerTotals) {
     for (let i = 0; i < playerCount; i++) {
-        if (playerTotals[i] < parTotal) {
-            console.log(playerTotals)
-            document.getElementById(`player${i}final`).innerHTML = `Final: +${parTotal - playerTotals[i]}`
+        if (playerTotals[i] > parTotal) {
+            document.getElementById(`player${i}final`).innerHTML = `Final: +${playerTotals[i] - parTotal}`
             document.getElementById(`player${i}finalmessage`).innerHTML = 'Better luck next time!'
+        }
+        if (playerTotals[i] == parTotal) {
+            document.getElementById(`player${i}final`).innerHTML = `Final: 0`
+            document.getElementById(`player${i}finalmessage`).innerHTML = 'Right on Par!'
+        }
+        if (playerTotals[i] < parTotal) {
+            document.getElementById(`player${i}final`).innerHTML = `Final: ${playerTotals[i] - parTotal}`
+            document.getElementById(`player${i}finalmessage`).innerHTML = 'On to the PGA!!!'
         }
         
     }
