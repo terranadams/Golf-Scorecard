@@ -134,7 +134,7 @@ function checkNames() {
             alert("Please make sure all the names are different.")
             playerCheck = []
         }
-    } 
+    }
     if (playerCheck.length == 3) {
         if (playerCheck[0] != playerCheck[1] && playerCheck[0] != playerCheck[2] && playerCheck[1] != playerCheck[2]) startGame()
         else {
@@ -143,13 +143,13 @@ function checkNames() {
         }
     }
     if (playerCheck.length == 4) {
-        if (playerCheck[0] != playerCheck[1] && playerCheck[0] != playerCheck[2] && playerCheck[0] != playerCheck[3] && 
-            playerCheck[1] != playerCheck[2] && playerCheck[1] != playerCheck[3] && playerCheck[2] != playerCheck[3]) startGame() 
+        if (playerCheck[0] != playerCheck[1] && playerCheck[0] != playerCheck[2] && playerCheck[0] != playerCheck[3] &&
+            playerCheck[1] != playerCheck[2] && playerCheck[1] != playerCheck[3] && playerCheck[2] != playerCheck[3]) startGame()
         else {
             alert("Please make sure all the names are different.")
             playerCheck = []
         }
-    }  
+    }
 }
 
 
@@ -205,7 +205,6 @@ function add(playerNum) {
         for (let j = 1; j <= 18; j++) {
             playerTotals[i] += Number(document.getElementById(`player${i}hole${j}`).value)
         }
-
         document.getElementById(`player${i}total`).innerHTML = `${players[i]}'s total: ${playerTotals[i]}`
     }
 
@@ -225,5 +224,18 @@ function add(playerNum) {
         document.getElementById(`player${i}in`).innerHTML = playerIns[i]
     }
 
+    let ticker = 0
+    for (let i = 0; i < playerCount; i++) {
+        for (let j = 1; j <= 18; j++) {
+            if (Number(document.getElementById(`player${i}hole${j}`).value) > 0) ticker ++
+        }
+        if (playerCount == 1) if (ticker == 18) endGame()
+        if (playerCount == 2) if (ticker == 36) endGame()
+        if (playerCount == 3) if (ticker == 54) endGame()
+        if (playerCount == 4) if (ticker == 72) endGame()
+    }
+}
 
+function endGame() {
+    console.log("YAAAAY")
 }
