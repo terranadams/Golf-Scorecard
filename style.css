@@ -6,11 +6,12 @@
 .text-center {
     border: solid 1px black;
     font-size: 1.5vw;
+    margin: auto
 }
 
 .leftColumn {
     font-size: 1.3vw;
-    margin: auto;
+    margin: 5px;
 }
 
 .col-1 {
@@ -20,8 +21,8 @@ body {
     background-color: rgb(72, 192, 102);
 }
 
-input {
-    font-size: 10px;
+inputs {
+    
 }
 #courseName {
     text-align: center;

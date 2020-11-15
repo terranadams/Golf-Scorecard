@@ -158,7 +158,7 @@ function startGame() {
     for (let i = 0; i < playerCount; i++) {
         players.push(document.getElementById(`playerNumber${i}`).value);
 
-        let newPlayerHTML1 = `<div class="row">
+        let newPlayerHTML1 = `<div class="row inputs">
         <div class="col-1 leftColumn player${i}">${players[i]}</div>
         <input type="number" min="1" onclick="add(${i})" class="col-1 text-center" id="player${i}hole1"></input>
         <input type="number" min="1" onclick="add(${i})" class="col-1 text-center" id="player${i}hole2"></input>
@@ -173,7 +173,7 @@ function startGame() {
       </div>`
         document.getElementById('cardStuff1').innerHTML += newPlayerHTML1;
 
-        let newPlayerHTML2 = `<div class="row">
+        let newPlayerHTML2 = `<div class="row inputs">
         <div class="col-1 leftColumn player${i}">${players[i]}</div>
         <input type="number" min="1" onclick="add(${i})" class="col-1 text-center" id="player${i}hole10"></input>
         <input type="number" min="1" onclick="add(${i})" class="col-1 text-center" id="player${i}hole11"></input>
