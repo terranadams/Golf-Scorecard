@@ -142,8 +142,9 @@ function checkNames() {
             playerCheck = []
         }
     }
-    if (playerCheck == 4) {
-        if (playerCheck[0] != playerCheck[1] && playerCheck[0] != playerCheck[2] && playerCheck[0] != playerCheck[3] && playerCheck[1] != playerCheck[2] && playerCheck[1] != playerCheck[3] && playerCheck[2] != playerCheck[3]) startGame() 
+    if (playerCheck.length == 4) {
+        if (playerCheck[0] != playerCheck[1] && playerCheck[0] != playerCheck[2] && playerCheck[0] != playerCheck[3] && 
+            playerCheck[1] != playerCheck[2] && playerCheck[1] != playerCheck[3] && playerCheck[2] != playerCheck[3]) startGame() 
         else {
             alert("Please make sure all the names are different.")
             playerCheck = []
