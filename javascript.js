@@ -116,7 +116,7 @@ function getNames() {
             <input id="playerNumber${i}" class="form-control col-3" type="text" placeholder="Enter name " value="Terran"><br>
         `;
     }
-    nameInputHTML += '<br><button onclick="checkNames()" class="btn btn-success">Start</button>' 
+    nameInputHTML += '<button onclick="checkNames()" class="btn btn-success">Start</button>' 
     document.getElementById('names').innerHTML = nameInputHTML
 
 
@@ -160,30 +160,30 @@ function startGame() {
 
         let newPlayerHTML1 = `<div class="row inputs">
         <div class="col-1 leftColumn player${i}">${players[i]}</div>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole1"></input>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole2"></input>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole3"></input>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole4"></input>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole5"></input>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole6"></input>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole7"></input>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole8"></input>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole9"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole1"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole2"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole3"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole4"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole5"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole6"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole7"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole8"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole9"></input>
         <div class="col-1 text-center" id="player${i}out"></div>
       </div>`
         document.getElementById('cardStuff1').innerHTML += newPlayerHTML1;
 
         let newPlayerHTML2 = `<div class="row inputs">
         <div class="col-1 leftColumn player${i}">${players[i]}</div>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole10"></input>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole11"></input>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole12"></input>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole13"></input>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole14"></input>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole15"></input>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole16"></input>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole17"></input>
-        <input type="number" min="1" onclick="add(${i})" class="col-1 text-center inputs" id="player${i}hole18"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole10"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole11"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole12"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole13"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole14"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole15"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole16"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole17"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole18"></input>
         <div class="col-1 text-center" id="player${i}in"></div>
       </div>`
 
