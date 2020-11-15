@@ -127,12 +127,28 @@ function checkNames() {
     for (let i = 0; i < playerCount; i++) {
         playerCheck.push(document.getElementById(`playerNumber${i}`).value)
     }
-    if (playerCheck[0] != playerCheck[1] && playerCheck[0] != playerCheck[2] && playerCheck[0] != playerCheck[3]
-        && playerCheck[1] != playerCheck[2] && playerCheck[1] != playerCheck[3] && playerCheck[2] != playerCheck[3]) startGame()
-    else { 
-        alert("Please make sure all the names are different.");
-        playerCheck = []
+    if (playerCheck.length == 1) startGame()
+    if (playerCheck.length == 2) {
+        if (playerCheck[0] != playerCheck[1]) startGame()
+        else {
+            alert("Please make sure all the names are different.")
+            playerCheck = []
+        }
+    } 
+    if (playerCheck.length == 3) {
+        if (playerCheck[0] != playerCheck[1] && playerCheck[0] != playerCheck[2] && playerCheck[1] != playerCheck[2]) startGame()
+        else {
+            alert("Please make sure all the names are different.")
+            playerCheck = []
+        }
     }
+    if (playerCheck == 4) {
+        if (playerCheck[0] != playerCheck[1] && playerCheck[0] != playerCheck[2] && playerCheck[0] != playerCheck[3] && playerCheck[1] != playerCheck[2] && playerCheck[1] != playerCheck[3] && playerCheck[2] != playerCheck[3]) startGame() 
+        else {
+            alert("Please make sure all the names are different.")
+            playerCheck = []
+        }
+    }  
 }
 
 
