@@ -113,10 +113,10 @@ function getNames() {
 
     for (let i = 0; i < playerCount; i++) {
         nameInputHTML += `
-            <input id="playerNumber${i}" class="form-control col-3" type="text" placeholder="Enter name " value="Terran"><br>
+            <input id="playerNumber${i}" class="form-control col-3" type="text" placeholder="Enter name "><br>
         `;
     }
-    nameInputHTML += '<button onclick="checkNames()" class="btn btn-success">Start</button>' 
+    nameInputHTML += '<button onclick="checkNames()" class="btn btn-success">Start</button>'
     document.getElementById('names').innerHTML = nameInputHTML
 
 
@@ -127,28 +127,32 @@ function checkNames() {
     for (let i = 0; i < playerCount; i++) {
         playerCheck.push(document.getElementById(`playerNumber${i}`).value)
     }
-    if (playerCheck.length == 1) startGame()
-    if (playerCheck.length == 2) {
+    if (playerCheck.length == 1 && playerCheck[0] != '') startGame()
+    else if (playerCheck.length == 2 && playerCheck[0] != '' && playerCheck[1] != '') {
         if (playerCheck[0] != playerCheck[1]) startGame()
         else {
-            alert("Please make sure all the names are different.")
+            alert("Please make sure all the names are different and aren't left empty.")
             playerCheck = []
         }
     }
-    if (playerCheck.length == 3) {
+    else if (playerCheck.length == 3 && playerCheck[0] != '' && playerCheck[1] != '' && playerCheck[2] != '') {
         if (playerCheck[0] != playerCheck[1] && playerCheck[0] != playerCheck[2] && playerCheck[1] != playerCheck[2]) startGame()
         else {
-            alert("Please make sure all the names are different.")
+            alert("Please make sure all the names are different and aren't left empty.")
             playerCheck = []
         }
     }
-    if (playerCheck.length == 4) {
+    else if (playerCheck.length == 4 && playerCheck[0] != '' && playerCheck[1] != '' && playerCheck[2] != '' && playerCheck[3] != '') {
         if (playerCheck[0] != playerCheck[1] && playerCheck[0] != playerCheck[2] && playerCheck[0] != playerCheck[3] &&
             playerCheck[1] != playerCheck[2] && playerCheck[1] != playerCheck[3] && playerCheck[2] != playerCheck[3]) startGame()
         else {
-            alert("Please make sure all the names are different.")
+            alert("Please make sure all the names are different and aren't left empty.")
             playerCheck = []
         }
+    }
+    else {
+        alert("Please make sure all the names are different and aren't left empty.")
+        playerCheck = []
     }
 }
 
@@ -228,7 +232,7 @@ function add(playerNum) {
     let ticker = 0
     for (let i = 0; i < playerCount; i++) {
         for (let j = 1; j <= 18; j++) {
-            if (Number(document.getElementById(`player${i}hole${j}`).value) > 0) ticker ++
+            if (Number(document.getElementById(`player${i}hole${j}`).value) > 0) ticker++
         }
         if (playerCount == 1) if (ticker == 18) endGame(playerCount, playerTotals)
         if (playerCount == 2) if (ticker == 36) endGame(playerCount, playerTotals)
@@ -252,6 +256,6 @@ function endGame(playerCount, playerTotals) {
             document.getElementById(`player${i}final`).innerHTML = `Final: ${playerTotals[i] - parTotal}`
             document.getElementById(`player${i}finalmessage`).innerHTML = 'On to the PGA!!!'
         }
-        
+
     }
 }
