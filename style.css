@@ -2,7 +2,9 @@
     margin: 5px 0px 5px 0px;
     border: solid 1px rgb(193, 230, 31);
 }
-
+label {
+    color: rgb(193, 230, 31)
+}
 #cardStuff1, #cardStuff2 {
     background-color: rgb(165, 184, 129);
 }
@@ -24,9 +26,16 @@ body {
     background-color: rgb(0, 70, 17);
 }
 
-inputs {
-    
-}
+/* inputs {
+    overflow: visible;
+} */
+
+/* input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+} */
+
 #courseName {
     text-align: center;
     color: rgb(193, 230, 31);
