@@ -116,7 +116,7 @@ function getNames() {
             <input id="playerNumber${i}" class="form-control col-2" type="text" placeholder="Enter name " value="Terran"><br>
         `;
     }
-    nameInputHTML += '<br><button onclick="checkNames()" class="btn btn-success">Start</button>' //Change onclick to checkNames()
+    nameInputHTML += '<br><button onclick="checkNames()" class="btn btn-success">Start</button>' 
     document.getElementById('names').innerHTML = nameInputHTML
 
 
@@ -190,14 +190,15 @@ function startGame() {
         document.getElementById('cardStuff2').innerHTML += newPlayerHTML2
 
         let totalsDivHTML = `
-      <div id="player${i}total"></div>
+      <div id="player${i}total" class="col-3"></div>
+      <div id="player${i}final" class="col-3"></div>
+      <div id="player${i}finalmessage" class="col-6"></div>
       `
         document.getElementById(`playerTotals`).innerHTML += totalsDivHTML
     }
     document.getElementById('courseName').innerHTML = course
     document.getElementById('names').remove();
 }
-
 
 function add(playerNum) {
     let playerTotals = [0, 0, 0, 0]
@@ -229,13 +230,21 @@ function add(playerNum) {
         for (let j = 1; j <= 18; j++) {
             if (Number(document.getElementById(`player${i}hole${j}`).value) > 0) ticker ++
         }
-        if (playerCount == 1) if (ticker == 18) endGame()
-        if (playerCount == 2) if (ticker == 36) endGame()
-        if (playerCount == 3) if (ticker == 54) endGame()
-        if (playerCount == 4) if (ticker == 72) endGame()
+        if (playerCount == 1) if (ticker == 18) endGame(playerCount, playerTotals)
+        if (playerCount == 2) if (ticker == 36) endGame(playerCount, playerTotals)
+        if (playerCount == 3) if (ticker == 54) endGame(playerCount, playerTotals)
+        if (playerCount == 4) if (ticker == 72) endGame(playerCount, playerTotals)
     }
 }
 
-function endGame() {
-    console.log("YAAAAY")
+
+function endGame(playerCount, playerTotals) {
+    for (let i = 0; i < playerCount; i++) {
+        if (playerTotals[i] < parTotal) {
+            console.log(playerTotals)
+            document.getElementById(`player${i}final`).innerHTML = `Final: +${parTotal - playerTotals[i]}`
+            document.getElementById(`player${i}finalmessage`).innerHTML = 'Better luck next time!'
+        }
+        
+    }
 }
