@@ -1,24 +1,33 @@
-let course
-let playerCount
-let players = []
-let cardStuff = document.getElementById('cardStuff')
-let courseID
-let difficulty
-let difficultyNum
-let coursePromise
-let nameInputHTML = `<label>Gimme names:</label>`
-let yardsTotal = 0
+let course // This will eventually help choose the corresponding courseID which helps select the right API.
+let courseID // This will be used in the template literal fetch call for the correct API info.
+let playerCount // This will help write most of our for loops down the road.
+let players = [] // We store the names captured in this variable before we display them on the page.
+let cardStuff = document.getElementById('cardStuff') // We will access the innerHTML of this div later.
+let difficulty // Like the course and courseID variables, this will eventually assign a number to the difficultyNum variable which will help us get API data.
+let difficultyNum // We will use this number to access yards, hdcp and par for either men, women, pro or champion teeBoxes.
+let coursePromise // This is just a box to use our fetch call with.
+let yardsTotal = 0 // These next three variables will be used as a ticker to count the total yards, hdcp and par from whatever comes back from the API call.
 let handicapTotal = 0
 let parTotal = 0
+let nameInputHTML = `<label>Gimme names:</label>`// We're going to add more to this html after we submit the course and stuff, and then display it.
+
+// I create all these variables above before I assign the values below to them so I can access them globally.
 
 function getNames() {
+    /* The plan for this function is to change the upper html on the page to get the names, but we 
+    can't do that until after we capture the values we need from the original content. */
 
+    // We get values for these three variables, and then we can change the html to display inputs for the names.
     course = document.getElementById('course').value
     playerCount = document.getElementById('playerCount').value
     difficulty = document.getElementById('difficulty').value
+
     console.log("Course chosen: " + course)
     console.log("Number of players: " + playerCount)
     console.log("Difficulty chosen: " + difficulty)
+
+    /* All these if statements below are used to assign courseID and difficultyNum depending on whatever the user
+    had chosen for the course and difficulty variables. CourseID and difficultyNum will be used for our fetch call. */
     if (course == 'Fox Hollow') courseID = 18300
     if (course == 'Thanksgiving Point') courseID = 11819
     if (course == 'Spanish Oaks') courseID = 19002
@@ -34,7 +43,12 @@ function getNames() {
         `https://golf-courses-api.herokuapp.com/courses/${courseID}`
     )
         .then(res => res.json())
-        .then(info => {
+        .then(info => { 
+            /* Everything in this function right here is responsible for filling in 
+            the yards, handicap and par boxes based on whatever course and difficulty the user chose.
+            
+            It is also in this function that we add the yards, hdcp and par into their totals. */
+
             document.getElementById('yards1').innerHTML = info.data.holes[0].teeBoxes[difficultyNum].yards
             document.getElementById('yards2').innerHTML = info.data.holes[1].teeBoxes[difficultyNum].yards
             document.getElementById('yards3').innerHTML = info.data.holes[2].teeBoxes[difficultyNum].yards
@@ -54,11 +68,7 @@ function getNames() {
             document.getElementById('yards17').innerHTML = info.data.holes[16].teeBoxes[difficultyNum].yards
             document.getElementById('yards18').innerHTML = info.data.holes[17].teeBoxes[difficultyNum].yards
 
-            for (let i = 0; i < 17; i++) {
-                yardsTotal += info.data.holes[i].teeBoxes[difficultyNum].yards;
-                document.getElementById('yardsTotal').innerHTML = `Yards total: ${yardsTotal}`
-            }
-
+            
             document.getElementById('hdcp1').innerHTML = info.data.holes[0].teeBoxes[difficultyNum].hcp
             document.getElementById('hdcp2').innerHTML = info.data.holes[1].teeBoxes[difficultyNum].hcp
             document.getElementById('hdcp3').innerHTML = info.data.holes[2].teeBoxes[difficultyNum].hcp
@@ -77,12 +87,8 @@ function getNames() {
             document.getElementById('hdcp16').innerHTML = info.data.holes[15].teeBoxes[difficultyNum].hcp
             document.getElementById('hdcp17').innerHTML = info.data.holes[16].teeBoxes[difficultyNum].hcp
             document.getElementById('hdcp18').innerHTML = info.data.holes[17].teeBoxes[difficultyNum].hcp
-
-            for (let i = 0; i < 17; i++) {
-                handicapTotal += info.data.holes[i].teeBoxes[difficultyNum].hcp;
-                document.getElementById('handicapTotal').innerHTML = `HDCP total: ${handicapTotal}`
-            }
-
+            
+            
             document.getElementById('par1').innerHTML = info.data.holes[0].teeBoxes[difficultyNum].par
             document.getElementById('par2').innerHTML = info.data.holes[1].teeBoxes[difficultyNum].par
             document.getElementById('par3').innerHTML = info.data.holes[2].teeBoxes[difficultyNum].par
@@ -101,7 +107,16 @@ function getNames() {
             document.getElementById('par16').innerHTML = info.data.holes[15].teeBoxes[difficultyNum].par
             document.getElementById('par17').innerHTML = info.data.holes[16].teeBoxes[difficultyNum].par
             document.getElementById('par18').innerHTML = info.data.holes[17].teeBoxes[difficultyNum].par
-
+            
+            // These three loops right here are responsible for adding the totals of yards, handicaps, and par.
+            for (let i = 0; i < 17; i++) {
+                yardsTotal += info.data.holes[i].teeBoxes[difficultyNum].yards;
+                document.getElementById('yardsTotal').innerHTML = `Yards total: ${yardsTotal}`
+            }
+            for (let i = 0; i < 17; i++) {
+                handicapTotal += info.data.holes[i].teeBoxes[difficultyNum].hcp;
+                document.getElementById('handicapTotal').innerHTML = `HDCP total: ${handicapTotal}`
+            }
             for (let i = 0; i < 17; i++) {
                 parTotal += info.data.holes[i].teeBoxes[difficultyNum].par;
                 document.getElementById('parTotal').innerHTML = `Par total: ${parTotal}`
@@ -111,6 +126,9 @@ function getNames() {
 
 
 
+        // This will all be the new html that changes after we submit our course n stuff. It'll ask for names, 
+        // and then when we click the Start button, it runs the startGame() function that stores those names and
+        // puts them into the chart.
     for (let i = 0; i < playerCount; i++) {
         nameInputHTML += `
             <input id="playerNumber${i}" class="form-control col-4" type="text" placeholder="Enter name "><br>
@@ -122,17 +140,23 @@ function getNames() {
 
 }
 
+/*  This function will run startGame() when all the name inputs meet the conditions.
+    It ensures that none of the name slots are left blank, and checks to see that none of the
+    names are the exact same before it displays the names in the chart.
+ */
 function checkNames() {
     let playerCheck = []
-    for (let i = 0; i < playerCount; i++) {
-        playerCheck.push(document.getElementById(`playerNumber${i}`).value)
+    for (let i = 0; i < playerCount; i++) { // We use the playerCount variable we defined earlier for all these loops.
+        playerCheck.push(document.getElementById(`playerNumber${i}`).value) // We push each name to the nameCheck array so we can use conditionals on them and make sure they'll work.
     }
+
+    // I use nested if else statements to check how many names there are, then make sure they're not left blank or are the same as any other name inputed.
     if (playerCheck.length == 1 && playerCheck[0] != '') startGame()
     else if (playerCheck.length == 2 && playerCheck[0] != '' && playerCheck[1] != '') {
         if (playerCheck[0] != playerCheck[1]) startGame()
         else {
             alert("Please make sure all the names are different and aren't left empty.")
-            playerCheck = []
+            playerCheck = [] // It's important that we reset the playerCheck array to nothing after each failed attempt to start the game.
         }
     }
     else if (playerCheck.length == 3 && playerCheck[0] != '' && playerCheck[1] != '' && playerCheck[2] != '') {
@@ -158,7 +182,8 @@ function checkNames() {
 
 
 
-function startGame() {
+function startGame() { // This function deletes the html that asks questions completely and adds new slots to the chart with the players' names.
+                        // it also creates a new row that will hold the totals for yards, hdcp and par.
     for (let i = 0; i < playerCount; i++) {
         players.push(document.getElementById(`playerNumber${i}`).value);
 
@@ -175,7 +200,7 @@ function startGame() {
         <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole9"></input>
         <div class="col-1 text-center" id="player${i}out"></div>
       </div>`
-        document.getElementById('cardStuff1').innerHTML += newPlayerHTML1;
+        document.getElementById('cardStuff1').innerHTML += newPlayerHTML1; // I have two different 'cardstuff' divs in the html page, one for holes 1-9 and the other for holes 10-18
 
         let newPlayerHTML2 = `<div class="row inputs">
         <div class="col-1 leftColumn player${i}">${players[i]}</div>
@@ -190,21 +215,19 @@ function startGame() {
         <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole18"></input>
         <div class="col-1 text-center" id="player${i}in"></div>
       </div>`
-
         document.getElementById('cardStuff2').innerHTML += newPlayerHTML2
 
         let totalsDivHTML = `
       <div id="player${i}total" class="col-3"></div>
       <div id="player${i}final" class="col-3"></div>
-      <div id="player${i}finalmessage" class="col-6"></div>
-      `
-        document.getElementById(`playerTotals`).innerHTML += totalsDivHTML
+      <div id="player${i}finalmessage" class="col-6"></div>`
+      document.getElementById(`playerTotals`).innerHTML += totalsDivHTML
     }
     document.getElementById('courseName').innerHTML = course
     document.getElementById('names').remove();
 }
 
-function add(playerNum) {
+function add(playerNum) { // The first three nested for loops all do the same thing: count each hole's number of tries, adds them, and outputs the number in a div.
     let playerTotals = [0, 0, 0, 0]
     for (let i = 0; i < playerCount; i++) {
         for (let j = 1; j <= 18; j++) {
@@ -229,7 +252,8 @@ function add(playerNum) {
         document.getElementById(`player${i}in`).innerHTML = playerIns[i]
     }
 
-    let ticker = 0
+    let ticker = 0 // Every time a new hole has a number put into it, this ticker goes up. Depending on how many players there is, it will reach a point that will 
+    // eventually call the final function of the program (which displays messages to the players based on their scores).
     for (let i = 0; i < playerCount; i++) {
         for (let j = 1; j <= 18; j++) {
             if (Number(document.getElementById(`player${i}hole${j}`).value) > 0) ticker++
