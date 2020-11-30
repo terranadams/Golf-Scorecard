@@ -147,7 +147,7 @@ function getNames() {
 function checkNames() {
     let playerCheck = []
     for (let i = 0; i < playerCount; i++) { // We use the playerCount variable we defined earlier for all these loops.
-        playerCheck.push(document.getElementById(`playerNumber${i}`).value) // We push each name to the nameCheck array so we can use conditionals on them and make sure they'll work.
+        playerCheck.push(document.getElementById(`playerNumber${i}`).value) // We push each name to the playerCheck array so we can use conditionals on them and make sure they'll work.
     }
 
     // I use nested if else statements to check how many names there are, then make sure they're not left blank or are the same as any other name inputed.
