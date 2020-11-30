@@ -189,30 +189,30 @@ function startGame() { // This function deletes the html that asks questions com
 
         let newPlayerHTML1 = `<div class="row inputs">
         <div class="col-1 leftColumn player${i}">${players[i]}</div>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole1"></input>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole2"></input>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole3"></input>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole4"></input>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole5"></input>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole6"></input>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole7"></input>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole8"></input>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole9"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole1"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole2"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole3"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole4"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole5"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole6"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole7"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole8"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole9"></input>
         <div class="col-1 text-center" id="player${i}out"></div>
       </div>`
         document.getElementById('cardStuff1').innerHTML += newPlayerHTML1; // I have two different 'cardstuff' divs in the html page, one for holes 1-9 and the other for holes 10-18
 
         let newPlayerHTML2 = `<div class="row inputs">
         <div class="col-1 leftColumn player${i}">${players[i]}</div>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole10"></input>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole11"></input>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole12"></input>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole13"></input>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole14"></input>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole15"></input>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole16"></input>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole17"></input>
-        <input type="number" min="1" onclick="add(${i})" onblur="add(${i})" class="col-1 text-center inputs" id="player${i}hole18"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole10"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole11"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole12"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole13"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole14"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole15"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole16"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole17"></input>
+        <input type="number" min="1" onclick="add(${i})" onblur="add()" class="col-1 text-center inputs" id="player${i}hole18"></input>
         <div class="col-1 text-center" id="player${i}in"></div>
       </div>`
         document.getElementById('cardStuff2').innerHTML += newPlayerHTML2
@@ -227,7 +227,7 @@ function startGame() { // This function deletes the html that asks questions com
     document.getElementById('names').remove();
 }
 
-function add(playerNum) { // The first three nested for loops all do the same thing: count each hole's number of tries, adds them, and outputs the number in a div.
+function add() { // The first three nested for loops all do the same thing: count each hole's number of tries, adds them, and outputs the number in a div.
     let playerTotals = [0, 0, 0, 0]
     for (let i = 0; i < playerCount; i++) {
         for (let j = 1; j <= 18; j++) {
